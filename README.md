@@ -82,3 +82,51 @@ This project is published under [MIT License][license].
 [lib]: https://github.com/cotes2020/chirpy-static-assets
 [vscode]: https://code.visualstudio.com/
 [jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
+
+## setup Lokal
+```bash
+bash tools/init.sh
+gem install bundler
+
+bundle install
+
+bundle exec jekyll serve
+```
+
+if error use this for venv
+```bash
+sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev git
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init - bash)"' >> ~/.bashrc
+source ~/.bashrc
+
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+rbenv install 3.2.2
+rbenv local 3.2.2   # khusus di folder project
+ruby -v
+
+gem install bundler
+bundle install
+
+bundle exec jekyll serve
+```
+
+cara pakai docker
+```bash
+docker build -t chirpy .
+docker run -p 4000:4000 chirpy
+```
+
+![alt text](images/README/image.png)
+
+## setup to github
+- enable github pages, menggunakan source github actions
+  ![alt text](images/README/image-1.png)
+- configure jekyll, config.yml dan commit
+
+```bash
+token=""
+git remote set-url origin https://aria-nf:$token@github.com/aria-nf/aria-nf.github.io.git
+
+```
